@@ -3,6 +3,7 @@ package dev.bahodir.rickandmorty.fragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -62,8 +63,20 @@ class WebFragment : Fragment(R.layout.fragment_web) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.webView.settings.javaScriptEnabled = true
-        binding.webView.webViewClient = MyWebViewClient(requireContext())
+        binding.webView.webViewClient = MyWebViewClient()
         binding.webView.loadUrl("https://rickandmortyapi.com/")
+    }
+
+    inner class MyWebViewClient : WebViewClient() {
+        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+            super.onPageStarted(view, url, favicon)
+            binding.progress.visibility = View.VISIBLE
+        }
+
+        override fun onPageFinished(view: WebView?, url: String?) {
+            super.onPageFinished(view, url)
+            binding.progress.visibility = View.GONE
+        }
     }
 
     companion object {
@@ -84,18 +97,5 @@ class WebFragment : Fragment(R.layout.fragment_web) {
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
-
-    private class MyWebViewClient(var context: Context) : WebViewClient() {
-
-        override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-            if (Uri.parse(url).host == "https://rickandmortyapi.com/") {
-                return false
-            }
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(context, intent, null)
-
-            return true
-        }
     }
 }

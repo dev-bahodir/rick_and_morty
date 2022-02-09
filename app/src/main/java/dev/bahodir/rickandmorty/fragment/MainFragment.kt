@@ -78,7 +78,6 @@ class MainFragment : Fragment(R.layout.fragment_main), CoroutineScope {
             apiViewModel
                 .flow
                 .catch {
-
                 }
                 .collect {
                     recyclerPagingAdapter.submitData(it)
