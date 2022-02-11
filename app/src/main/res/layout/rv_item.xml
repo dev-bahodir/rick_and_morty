@@ -6,112 +6,117 @@
     app:cardCornerRadius="@dimen/_12sdp"
     android:layout_marginTop="@dimen/_10sdp"
     android:layout_marginHorizontal="@dimen/_10sdp"
-    android:layout_height="@dimen/_130sdp">
+    android:layout_height="@dimen/_134sdp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
         <ImageView
             android:id="@+id/image"
-            android:src="@drawable/place_holder"
-            android:scaleType="centerCrop"
             android:layout_width="@dimen/_120sdp"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/place_holder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
+            android:text="Artist Morty"
             android:textColor="@color/white"
             android:textSize="@dimen/_18ssp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/image"
-            android:text="Artist Morty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/circle"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
             android:background="@drawable/green"
-            app:layout_constraintTop_toTopOf="@id/status"
             app:layout_constraintBottom_toBottomOf="@id/status"
             app:layout_constraintStart_toStartOf="@id/name"
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp"/>
+            app:layout_constraintTop_toTopOf="@id/status" />
 
         <TextView
             android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Alive - "
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
-            app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintStart_toEndOf="@id/circle"
-            android:text=" Alive - "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toBottomOf="@id/name" />
 
         <TextView
             android:id="@+id/species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Human"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
-            app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintStart_toEndOf="@id/status"
-            android:text="Human"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintTop_toBottomOf="@id/name" />
 
         <TextView
             android:id="@+id/origin_name"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp"
             android:ellipsize="end"
             android:maxLines="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/image"
             android:text="Close Rick-counters of the Rick Kind"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="wrap_content"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image" />
 
         <TextView
             android:id="@+id/first_seen_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First seen in:"
             android:textColor="#D3D1D1"
             android:textSize="@dimen/_12ssp"
-            android:text="First seen in:"
             app:layout_constraintBottom_toTopOf="@id/origin_name"
-            app:layout_constraintStart_toStartOf="@id/origin_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintStart_toStartOf="@id/origin_name" />
 
         <TextView
             android:id="@+id/last_known_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last known location:"
             android:textColor="#D3D1D1"
             android:textSize="@dimen/_12ssp"
-            android:text="Last known location:"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintBottom_toTopOf="@id/location_name"
-            app:layout_constraintTop_toBottomOf="@id/species"
-            app:layout_constraintStart_toStartOf="@id/circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="@id/circle"/>
 
         <TextView
             android:id="@+id/location_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            app:layout_constraintTop_toBottomOf="@id/last_known_location"
-            app:layout_constraintBottom_toTopOf="@id/first_seen_in"
-            app:layout_constraintStart_toStartOf="@id/last_known_location"
             android:text="Citadel of Ricks"
-            android:layout_width="@dimen/_150sdp"
-            android:layout_height="wrap_content"/>
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@id/last_known_location"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
